@@ -69,7 +69,7 @@ public class Main {
             int currentElement = list[i];
             int j;
 
-            for (j = i - 1; j >= 0 && list[j] > currentElement; j--) {
+            for (j = i - 1; j >= 0 && (isAscending ? (list[j] > currentElement) : (list[j] < currentElement)); j--) {
                 printArray(list, false);
                 list[j + 1] = list[j];
             }
