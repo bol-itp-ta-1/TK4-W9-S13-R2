@@ -68,14 +68,15 @@ public class Main {
     }
 
     private static void randomData() {
+        System.out.print("Batas Bawah = ");
+        int bottomLimit = input.nextInt();
+
         System.out.print("Batas Atas = ");
         int topLimit = input.nextInt();
 
-        System.out.print("Batas Bawah = ");
-        int bottomLimit = input.nextInt();
         System.out.println();
 
-        if (topLimit > bottomLimit) {
+        if (bottomLimit > topLimit) {
             System.out.println("Invalid batas bawah!!");
             return;
         }
