@@ -18,7 +18,6 @@ public class Main {
     private static boolean runProgram() {
         System.out.println("""
                 Welcome in Simulation Program!
-                                
                 Menu:
                 1. Random Data
                 2. Simulasi Bubble Sort - Ascending
@@ -66,9 +65,38 @@ public class Main {
     }
 
     private static void bubbleSort(boolean isAscending) {
-
     }
 
     private static void randomData() {
+        System.out.print("Batas Atas = ");
+        int topLimit = input.nextInt();
+
+        System.out.print("Batas Bawah = ");
+        int bottomLimit = input.nextInt();
+        System.out.println();
+
+        if (topLimit > bottomLimit) {
+            System.out.println("Invalid batas bawah!!");
+            return;
+        }
+
+        System.out.println("Random Number:");
+
+        int[] randomData = getRandomNumber(topLimit, bottomLimit);
+        for (int randomDatum : randomData) {
+            System.out.print(randomDatum + "    ");
+        }
+
+        System.out.println("\n");
+    }
+
+    private static int[] getRandomNumber(int topLimit, int bottomLimit) {
+        int[] randomData = new int[5];
+
+        for (int i = 0; i < randomData.length; i++) {
+            randomData[i] = (int) (Math.random() * (topLimit - bottomLimit)) + bottomLimit;
+        }
+
+        return randomData;
     }
 }
