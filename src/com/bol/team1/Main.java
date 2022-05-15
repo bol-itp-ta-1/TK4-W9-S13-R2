@@ -85,6 +85,29 @@ public class Main {
     }
 
     private static void bubbleSort(boolean isAscending) {
+        int[] list = getRandomNumber(500, 100);
+        boolean isNeedNextPass = true;
+
+        for (int i = 1; i < list.length && isNeedNextPass; i++) {
+            System.out.println("Pass " + i);
+            isNeedNextPass = false;
+            for (int j = 0; j < list.length - i; j++) {
+                if (list[j] > list[j + 1]) {
+                    printArray(list, false);
+                    int temp = list[j];
+                    list[j] = list[j + 1];
+                    list[j + 1] = temp;
+
+                    isNeedNextPass = true;
+                }
+            }
+
+            System.out.println("\nResult of Pass " + i);
+            printArray(list, true);
+        }
+
+        System.out.println("Bubble Sort " + (isAscending ? "Ascending" : "Descending") + " :");
+        printArray(list, true);
     }
 
     private static void randomData() {
