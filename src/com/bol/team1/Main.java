@@ -62,6 +62,26 @@ public class Main {
     }
 
     private static void selectionSort(boolean isAscending) {
+        int[] list = getRandomNumber(500, 100);
+
+        for (int i = 1; i < list.length; i++) {
+            System.out.println("Pass " + i);
+            int currentElement = list[i];
+            int j;
+
+            for (j = i - 1; j >= 0 && list[j] > currentElement; j--) {
+                printArray(list, false);
+                list[j + 1] = list[j];
+            }
+
+            list[j + 1] = currentElement;
+
+            System.out.println("\nResult of Pass " + i);
+            printArray(list, true);
+        }
+
+        System.out.println("Selection Sort " + (isAscending ? "Ascending" : "Descending") + " :");
+        printArray(list, true);
     }
 
     private static void bubbleSort(boolean isAscending) {
@@ -84,11 +104,7 @@ public class Main {
         System.out.println("Random Number:");
 
         int[] randomData = getRandomNumber(topLimit, bottomLimit);
-        for (int randomDatum : randomData) {
-            System.out.print(randomDatum + "    ");
-        }
-
-        System.out.println("\n");
+        printArray(randomData, true);
     }
 
     private static int[] getRandomNumber(int topLimit, int bottomLimit) {
@@ -99,5 +115,16 @@ public class Main {
         }
 
         return randomData;
+    }
+
+    private static void printArray(int[] array, boolean isAddNewLine) {
+        for (int j : array) {
+            System.out.print(j + "    ");
+        }
+
+        if (isAddNewLine)
+            System.out.println("\n");
+        else
+            System.out.println();
     }
 }
