@@ -92,7 +92,7 @@ public class Main {
             System.out.println("Pass " + i);
             isNeedNextPass = false;
             for (int j = 0; j < list.length - i; j++) {
-                if (list[j] > list[j + 1]) {
+                if (isAscending ? (list[j] > list[j + 1]) : (list[j] < list[j + 1])) {
                     printArray(list, false);
                     int temp = list[j];
                     list[j] = list[j + 1];
